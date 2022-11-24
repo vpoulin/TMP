@@ -2,17 +2,17 @@
 
 Clustering high dimensional data points in challenging! The regular techniques such as k-means, DBSCAN, HDBSCAN, Agglomerative Clustering all suffer from the non-intuitive properties of metrics in high dimension. However, experiments have shown that dimension reduction techniques applied before running a clustering algorithm can really improve on the results obtained. More precisely, using UMAP to reduce dimensionality followed by HDBSCAN to identify clusters perform reasonably well in identifying the underlying clusters. In general, it performs better than using PCA for dimensionality reduction. The following figure shows results from a study of the [Pendigits data set](http://odds.cs.stonybrook.edu/pendigits-dataset/). We show clustering accuracies of five clustering algorithms on the original high dimensional points and on low dimensional points obtained using PCA or UMAP. The accuracies are measured with the adjusted Rand index (ARI) and the adjusted mutual information (AMI). 
 
-![](https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/dim_red_4_clustering.png)
+![](https://github.com/vpoulin/TMP/blob/master/notebooks/figures/dim_red_4_clustering.png)
 
 This same experiment has been run on five high dimensional data sets, all of which are images. The two data sets COIL and Buildings are obtained via pictures of objects at different angles. Hence, the distance between images of the same object/same cluster in opposite direction (180 degrees) can be quite large, but the distance between the same object at similar angles is small. It is important to note that the Buildings data is more challenging then all of the other data sets. 
 
 | Name     | Sample | Clustering Accuracy (Blue: None, Orange: PCA, Green: UMAP) | 
 | --- | :-: | --- | 
-| Pendigits   |  <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/examples_Digits_6_0.png" width="200" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/dimred_pendigits.png" width="400" />  |
-| Coil | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/coil_bw.jpg" width="300" /> | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/dimred_coil.png" width="400" />  |
-| MNIST | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/320px-MnistExamples.png" width="200" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/dimred_mnist.png" width="400" />  |
-| USPS  | <img src="https://production-media.paperswithcode.com/datasets/USPS-0000001055-6cd416b0_D96Rryg.jpg" width="200" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/dimred_usps.png" width="400" />  |
-| Buildings | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/buildings.png" width="300" /> | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/dimred_buildings.png" width="400" />  |
+| Pendigits   |  <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/examples_Digits_6_0.png" width="200" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/dimred_pendigits.png" width="400" />  |
+| Coil | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/coil_bw.jpg" width="300" /> | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/dimred_coil.png" width="400" />  |
+| MNIST | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/320px-MnistExamples.png" width="200" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/dimred_mnist.png" width="400" />  |
+| USPS  | <img src="https://production-media.paperswithcode.com/datasets/USPS-0000001055-6cd416b0_D96Rryg.jpg" width="200" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/dimred_usps.png" width="400" />  |
+| Buildings | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/buildings.png" width="300" /> | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/dimred_buildings.png" width="400" />  |
 
 As mentioned earlier, comparisons were run on all of the five data sets and the results are displayed in the table above. The saturation of the colour indicates the proportion of points that were actually clustered and not identified as outliers. One problem we encounter with the original data or data reduced via PCA, is that the density-based clustering algorithms, DBSCAN and HDBSCAN, identify a large proportion of the points as noise points. UMAP doesn't suffer from this behaviour as much. Moreover, the UMAP representation yields overall better results with any of the clustering algorithms, but generally performs better with HDBSCAN. 
 
@@ -24,9 +24,9 @@ UMAP reduces the points to a space whose dimension is specified by the user. It 
 |   | Impact of UMAP's nepoch parameter  |   |
 | :-: | :-: | :-: | 
 | Pendigits   |  USPS | Coil  |
-| <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/nepochs_pendigits.png" width="400" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/nepochs_usps.png" width="400" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/nepochs_coil.png" width="400" />  |
+| <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/nepochs_pendigits.png" width="400" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/nepochs_usps.png" width="400" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/nepochs_coil.png" width="400" />  |
 | MNIST  | Buildings |
-| <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/nepochs_mnist.png" width="400" /> | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/nepochs_buildings.png" width="400" /> |
+| <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/nepochs_mnist.png" width="400" /> | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/nepochs_buildings.png" width="400" /> |
 
 In this experiment, all the initializations were obtained via a spectral decomposition. As we can see, the cluster qualities do not improve so much after 50-100 epochs. It also shows that performing HDBSCAN on a spectral decomposition of the UMAP graph does not recover the partitions well. So the gradient descent does improve the results of the clustering task, but does not need too many steps. Could we design an early stopping criteria for the clustering task? Is all of the information relevant for clustering captured in the UMAP graph? Could we turn this clustering algorithm into a graph clustering algorithm?
 
@@ -39,9 +39,9 @@ As a first experiment, we evaluate the performance of standard graph clustering 
 |   | Graph partition accuracies  |   |
 | :-: | :-: | :-: | 
 | Pendigits   |  USPS | Coil  |
-| <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_pendigits.png" width="400" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_usps.png" width="400" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_coil.png" width="400" />  |
+| <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_pendigits.png" width="400" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_usps.png" width="400" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_coil.png" width="400" />  |
 | MNIST  | Buildings | Legend |
-| <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_mnist.png" width="400" /> | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_buildings.png" width="400" /> | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_legend.png" width="150" /> |
+| <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_mnist.png" width="400" /> | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_buildings.png" width="400" /> | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_legend.png" width="150" /> |
 
 Apart from the Buildings data set, **all** the graph clustering algorithms we have tested do not perform as well as our baseline model and yield better results with the fuzzy union graph. The Buildings data set is known to be more challenging than the others, It is promising to see that the graph clustering does improve results on this task, but results are still not very good (with ARI less than 0.5). 
 
@@ -70,9 +70,9 @@ In these five experiments, the partitions produced by Leiden all have higher mod
 |   | Cluster sizes  |   |
 | :-: | :-: | :-: | 
 | Pendigits   |  USPS | Coil  |
-|  <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_pendigits_sizes.png" width="400" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_usps_sizes.png" width="400" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_coil_sizes.png" width="400" />  |
+|  <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_pendigits_sizes.png" width="400" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_usps_sizes.png" width="400" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_coil_sizes.png" width="400" />  |
 | MNIST  | Buildings | Legend |
-| <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_mnist_sizes.png" width="400" /> | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/graphClust_buildings_sizes.png" width="400" /> |  |
+| <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_mnist_sizes.png" width="400" /> | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/graphClust_buildings_sizes.png" width="400" /> |  |
  
 
 # Discriminant properties
@@ -84,14 +84,14 @@ Here, we study the two distributions (internal vs. external edges) of natural ed
 |   |  Edge property distributions |   |
 | :-: | :-: | :-: | 
 | Pendigits   |  USPS | Coil  |
-| <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/edge_properties_pendigits.png" width="400" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/edge_properties_usps.png" width="400" />  | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/edge_properties_coil.png" width="400" />  |
+| <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/edge_properties_pendigits.png" width="400" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/edge_properties_usps.png" width="400" />  | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/edge_properties_coil.png" width="400" />  |
 | MNIST  | Buildings | Legend |
-| <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/edge_properties_mnist.png" width="400" /> | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/edge_properties_buildings.png" width="400" /> | <img src="https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/edge_properties_legend.PNG" width="400" /> |
+| <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/edge_properties_mnist.png" width="400" /> | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/edge_properties_buildings.png" width="400" /> | <img src="https://github.com/vpoulin/TMP/blob/master/notebooks/figures/edge_properties_legend.PNG" width="400" /> |
 
 Note that all the histograms above are in a log scale for their y-axes. As can be seen from these plots, some of the edge properties have different distributions when conditioned on internal (blue) vs. external (red) edge status. Recall that the internal edges form the dominant set containing over 92% of the edges in all cases. Apart from the sum of sigmas, all of the conditional distributions have smaller supports for the external edges rather than internal edges. The internal edge distributions have their leftmost or rightmost tails outside the intersection of supports, making these edges separable from the rest. However, if we restrict the domains to the intersection of the supports, the external edges' distributions attain their peak, but, at the same time, the internal edges still dominate in terms of frequencies - direct consequence of the unbalanced nature of the internal/external distribution. This phenomenon is not as pronounced when we look at the distributions of the low dimensional distances. The low dimensional distances do separate better the two edge types as we can see in the plot below.
 
 
-![](https://github.com/vpoulin/HighDimensionalClustering/blob/master/notebooks/figures/edge_lowdim_dist.png)
+![](https://github.com/vpoulin/TMP/blob/master/notebooks/figures/edge_lowdim_dist.png)
 
 We have also explored properties of the directed edges of the k-NN graphs. We have looked at the two distributions (internal vs. external) of the "neighbour rank" of each directed edge. The conclusion is similar if not worst: the supports of the two distributions are identical in all cases  
 
